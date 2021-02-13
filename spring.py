@@ -15,13 +15,13 @@ d_min = np.inf #Min distance of current calc.
 t_s=0 #Starting point of detected segment
 t_e=0 #End point of detected segment
 seg=[] #List of segments [t_s, T,e]
-filename="handgesture.csv"
+filename="handgesture.csv" #File of time-series data (two example files, pulse.csv and handgesture.csv are given)
 #Load data
 with open(filename) as f:
     X=np.loadtxt(f, delimiter=",")
     X=X[:,3] #time-series data
-    Y_s,Y_e=4551,4800
-    Y=X[Y_s:Y_e] # query sub-sequence
+    Y_s,Y_e=4551,4800 #range of query subsequence (you can change here by seeing X)
+    Y=X[Y_s:Y_e] # query subsequence
 
 #Initialize warping matrix
 d=np.zeros((len(X)+1,len(Y)+1)) #distance
